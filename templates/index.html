@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="hero" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh0lHdzM0CbgUeansb1XPPs8JNM1FwKVoazg&s');background-size: 100%; background-position: center; color: white; padding: 5rem 0; text-align: center;">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Smart Health Monitoring Gloves</h1>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">Revolutionizing patient care with real-time health data monitoring through our innovative smart gloves.</p>
+                <a href="/scan_qr" class="btn pulse" style="padding: 0.8rem 2rem; font-size: 1.1rem;"><i class="fas fa-qrcode"></i> Connect Your Device</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" style="padding: 4rem 0; background-color: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">How It Works</h2>
+            <div class="features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="feature-card fade-in delay-1" style="background-color: var(--light-color); padding: 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">1. Scan QR Code</h3>
+                    <p>Use our app to scan the QR code on your IntelliCare gloves to pair them with your device.</p>
+                </div>
+                <div class="feature-card fade-in delay-2" style="background-color: var(--light-color); padding: 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">2. Wear the Gloves</h3>
+                    <p>Put on the smart gloves which will automatically start monitoring your vital signs.</p>
+                </div>
+                <div class="feature-card fade-in delay-3" style="background-color: var(--light-color); padding: 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                    <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">3. Monitor Data</h3>
+                    <p>View real-time health metrics and analytics on your dashboard for better health insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="padding: 4rem 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div class="fade-in">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExMVFRUXFxcVFRgXFxYVGBcXFhcXGBgYFxUYHSggGBolHRUWITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0lHyUtLS0tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAECBwj/xABCEAABAwIEAggDBgQEBQUAAAABAAIRAyEEBRIxQVEGEyJhcYGRsTKhwRQjQnLR8FJiguEVM5LxByRTorIWQ2OTwv/EABkBAAMBAQEAAAAAAAAAAAAAAAEDBAIABf/EACoRAAMAAQQBAgYDAQEBAAAAAAABAhEDEiExUQRBEyIyM2FxgaGxQtEU/9oADAMBAAIRAxEAPwDxFqkDW8z6LgLYCBx6llmQYfFsbVqtLnCjRAIcRaCOHgqW46aj2DZr3tjuaSB7Kw/8Nw97ao6xwDdMDmL/AC3VhxGBBcScOw7307zxPeoXqudSl2V/DVQhn0cpDqqUTDabZnmbxCZZm63kfZI8JjXUxApn5rutj6j92kDvC2vUJLlMX8B+TzGu2XvBMBzzHreVY+j9MNrUuLRULAfFspi7o9hnXeKmoyTBtc8lzSyajTqNc11QgOloJsLQZRn1UpYaFV6S8pl0dSGmDfkUCMSTUEGeBHIjuU7cxpadOpB020tettUb7FB60+zG/BrwXHDgaRFkNWxAaJcRHogsFmbA09tpOwuhcZSFVo+8bYzE7pr15xwzHwq8DGnjmFwE78eC6qOFyIIFpVYzLGMwtGpUrFpkQwAglzosB+7LzCtnFWPjcATMSSBPIH39ljT1bs1WkpPb+sB2IPgQo6roC8bwnSDE03Ah5LRzv7lX3JOkja7dLi0OItffnZP3eTG0QdM+keIp1Qym/S2J2vPiqbjc4xDrurVD/UR7Jv0zH3/lCrddFGQxmdVxtiKvqT7r0HoHmT6lFxqPLyHG5XlgV46A4nTTqDvXM5HojKkrZKXZZX1jV3wmJCWqVdG9rXYqzI3HmhMibNU/m+iIzUx6rno22ah8Ul/UNX0l0NP76l+VOMIPvHnkAEAGffU/ypngL6z3qqFyT10R4oJU4XTjFNslLhdNYtHVMXHiFbcEYpt8/dVWmLjxCteFbNMDx90ArsIbUHMLbieCFbQAsUSTyQCDV8UWmCFr7af4StVmS6StBsCSicU3Mas1Xn+YrFxmH+Y/8xWlxk+c2NLgSGSBvA2XBYRuIRGHDdI7RBO8GJ8lMMO07k22usDD0zoV/kUIi9B095a8fqrnQbICpHQRn3GGdedFZndZwO3kn1bNarahpU6YIbT1uc4wDeIH6qSXjVY+vtoftpDkuupHIIDD5xRcQ3rG6jaJ4pk0qlNMUQnDtn4R6Iatg2ExpFro97ZUZaAEGkchS/AU/wCEIfE5XTLbNEpjVKge6yU1Pg2m/J5xi21WYgUz8Lp8l2MJU1X1QTEzZWHP6Imm+IMpZnVYtYfymPEiFLaTvC8FMU1GfyVDNMSXOAklrZImTMm3rE+nJL2EuMwDzPBdVWFzoA+gsOPcB9VK5pc3SyAwcdi48z3dysnEpInr5nk26iHN3jv/ALrjC4t1FxG4O4vHiO9dsw8CSZjlt5n6BduoioNoPpK0mZaHOc1GV6IxDLlkB87ydjtvMKrVn9wTropW01H0nTpe0g93ffkg88yl+HOl5B1CWkGQRIhaXgy/IpT3o3i3MDw1sykgpnkfRO+j0hr/ACXX0dHZ6RkT5psMcU3ckeQu+6Z4p25S6P0/yP1uxVnDbFddGB2v6l3mTJHkVz0SEn+pH/oH/JfdP3oPJiMyrY+KGf8AE4/ywi8m2KrXZM+jvGtskpF0+xwskR3TGYRJTFx4hWzA/APP3VVZuPEK1YI9hv74oMK7NYmnMXKjJNoKLc8DcoZwuuCcE9pTVqZcyAonkSpXVNLAd1xxR8bS+8dP8RW13j6k1Hnm4rS4CPOqI1ODeopSQT8I4R+qhxdVrKgpuw9GTF4EXMI6hj6JqDS8EtkGx2PIpV0rcRXa4ECwmRyK8utOEuH/AGelNU3hr+i0Yeh1BpToawucAGiAC5pPzhGYikxwIInU0tJ/lKjxtNtVlEGCNbf/ABK6rU9MAcFtJTqceBTe6P5KHWqU6L3YSlr1y1pMD4ReQecHfuXpHR2t9yASSW2JK8zxwfTzI1uqe5sbhpO7SOSv3R2tqouOlzbizgQbNHBPnCfAjA5djJfoHquc0wTtBeHmREAICiD1gKcY55NIgLeU08nNNFcOLrAElrHNHIwfMJRiukwaQDTdcE+iYvYWuLRabnvKTZ2YhwYXOYZAAJ4dylqqxw/4N4YYzNqdel2mwSNTeYI5qq9J8UQ0N2MSfNE/4m2nT+8Gl9yAN44+SrGY401nybaj8gk+n0q3OqNy2paYxyjLKjqWtrS7rHCmZEgNdz5A8T4LrB5DUa6SwlgNxAcQBxbO/gpcoxVRjHFryA4U+zu3tPgmDsYAEhX7Ast3ED1T6ppjpmWkV7D9GqdVodTxALTsQwekzIIPBSUf+H8HV9oP+i/rqR+bZaaYdWou6upaREsrEmAHt21EkDUL85Cio18Q57NIqNMdpjNMHSb/ABEtj0N10vwByvdDDC9H8Pg6b6pbqeQG6nX+I7AbRYlVjpFl7MU9rpLA0Ebc4/RWHEVq9Us1dloMuZLXRaIJA+ISditPoiOC3trvIp1Oeih4jo+AdLcQCeUIrL8pNJrgXzKKdhy7EANEmYCu2X5BTEOq9p38IMAeJ4rp3V7nVtnHApyBpFMfmsnjyneGpUwIFNsTbsiBN0Q7C0X7iD3bea3p6W1dmL1NzzgqGO2W+hbbkcifdO8/ybTSL2mRxHLvHclHRRulzz3T6oOcWjk8yXetsfAI3IxY+KBru7E80xyMdkqldiGSY8WSE7qwZhskDt1swSsFx4hWnBjsD98VV2cPFWjAt7AXM5HVSnqFxdQ9S61x6ohzgLkJTUeZ4wdkDQf1N5JapKrRoiYtvCDwxumBsAuOKLi2dt3iVinx5HWPjbUfdYuAjxHDZ+6gR1g1zBG0evBdY/MziXlz4DY0gA3H6qxYbLK0dplHw0hduo4jbq6IF+DV4iWmnuSwz3fixl5nj2/BJgcqbTNGqH1CQ5nxPcRe223FWTEs7W5Hgl7KB6potILTvycCU4e2SqVirRC8qWDtoH+IqdmGP8RUlOnGyn1BULSnwIepXkGfTI/EVBXe4fjKVdJcyqsgsZrGxAO89/AhJMRmD6tSizS8VGnla+8+AlYraukFW/I9xGGnUSTJU2DySq+iXdZocXTBAMt8fwnvRuBpRudRnc/RO6I4ck+PSw+WjFaz9jzzM+iztJLmzvJsRfmZJPmvOcdhyxxBEaXFv6L3+pTqvB7YY3YDS11u/V+/deSdNcv0V6g3sHA7SSBExx3HkurT28roZ8Xckn2ZlmC1MI4gD0IDgfUK6ZLiw+nBsWi893FV/IhBBgw5jTHlPuClfSHOKlCu0UoA/FadXd4KNJ0ynckuS/1XMj74tjmTA7rreDxlOlYQWkFwLTq1D996Gyat9ooNqvZpBMOgm14nwP1UebkNcCB2Yc0fKEzT032L1daVwMcbl+ul1lI6LSGxZUCtnOID3AAEDluvTcAP+Wjfs/ReW5UT9uqDxHoSqFSXLWRDjKaTxyWPolhXEHEVWaXH4J5cTHDl6q0NxDYO0/u6V5hTeKVOTMui1vALKDoMe6TV4fCH6WluSbHlF5g3KJwnPjxQWHIA3WsRjqdMDUYkw0C7nHeGtFybbBGK8naseCwQKlN1M/iBH6KtZVl+irUphwmYd3eCmyrN3FzWlkS4CJlwBMAmLeXBQ5PWJxtQuEEkmD7fJbdTWBFadR2WXHNgsHIJrkwsUux7LtKY5QDBVCEMkx+yQu3T3G7JE83RMk1PceKs+EP3Y8/dViluPFWCk4Gno1AEgiOK6jkaxUgTIva6DxdUNie4LMRQAdTBcXxeJ4hQVIqEkA988kl3jj3ObGGD3RWIAJCSZdUOtzQZAiE4qnZaim1lrAU8oqOLHbd+Y+62sxPxu8T7rEwB5l1bg7c796Ax2rVEn43cf5QrVVbdVfpJW6qoHRY3t3WP0Xn1PysuivmQ8wVX/lvAexVgxVctEjeLeiomBz+n1RbBBIMeeysWKxz2MZqi5aJ7iErdipGbcpgeCq46oXnrw0AmAGd9kyoZhVNMsJ+8AjWRAnwUhwdHqhUZUOqZMH1sk+JqOsW8zKpqsITtydZZRfVc9lao594tb0hPKeWU6TjokmBJJJPOL+SS5bW01YJ3gqyNM6iUdFJvINZKUsHWBPa8AU/wuyU5bTGh1Tvj2/Up1h6YixV09ErOTSgQP2F5r0xweuq8ndrW1G/0P0uHf2SvUXMhVHpNgor0Sfhe6pTPfrYCB/qYT5oXO5YBu24f5X+lW6PgBjXGwY6pTceQkke6g6X5O0U6DgLmm0Qe8N/VOMHlZa+rhyPjmPMCfOHJz0qwOrTGzQT4Bok/JQRD20y66WUb6E4L/ldB2fqHgCLJfnmGcWMGntA37o39la8lpaKTR3CI5G/1SfNqR619zvPrf6ptS5iRDxqUzWV4oClpdYwqC3D1GYp9QM7JcYPmriaCAxNPdIbsoTk6zLGOrU+rpB0UwHOeI/zLQzwh8kweHekWExtWpVdRqAadMtqEzp4AECJJvxGy5OZOpPcwQWviRJEHmCNijMoLWuquqkQ4Bo4cZ+u6KaZuE17hNGjXFMtp1Gte28kBzSJ4jeY703y/Km0iXuc6rVIg1H/FB3DRsxvcPmgqVFrHdYx4e0fE3UXRx8/NPOuDvFZY9Snyayyg0V3V3kAMHAbCBvzMqBmN14rrOGw8OC1mGLdDaLTBeRcWhrXAuM/LzCJzHCw8VGNOk/FGwNvTdMmXsyvJJrVnUw/BbMSJYwo7K+KBqN+5afBG5XxVaI2d482KQE3T3ML2Sbq5eQDC0YO8ObjxVgwuCbaoZlIaTIITSriqlOi5x0wDaODeM/NYt4nL9grkEzugyQ5rix07jlxF+CJoubFiD4LZwwqFpcARpnzK4oZSym9zmiJERw8YWUvc23lckdNrWh2ky+Z/3Wq2YuLhTDYMEyQQDEWDuaDGEqBznG3eOPksoMe1wc6qHNANiIPqsvKWUHZK9xW6tVJJNMAybTPHmsRX2xhuJINxYrFvdPkP8FQrbSeCrPS2nPV/mI9Qu89zao2Bo0scS3UTvbklL8y62kNYgtdb1Ud0MisNE2WZAH0y7WQQTaBwVzfh2VKVMPGoaWujvAsl3RqkOreO/wBwnOWNmmyf4Y9CkNZ2lOcbsEWHw1Nvw0wB4lFNYP4GogUwpqdMJ60ZFPVoBcI/A30UuFIBh3EKTFM2hDgcVTowpXAnUp12NMq3qUzaRLfL/dH4KwjiOHd3JFh8UWkGLjZO6GKa8B0Fp5kW9RsqJYljAG3cq90xtSZV/wClWpVPIOg+6sFNLc9oa6FdnOm6PGJHzhMXYu1mWd/Ymdb10doN0jkJNz47Cf1SnMWnEVH0Q8spNbpqlsanF4nQCQYAaQTHMJtldfXh6T/4qbT56RKgyvBhrqrwT26hJkyB4fvh3IdBbdpeCLIcQ4sLHXdSd1c7SNLXNMDjpcAe8HZD5v8A5h8B7BGZZhi11ZxI7dTVHIBjW/8A5nzSnpBmFNtcUy7tljXAd1xPyKTrdDNLJG42Vaxgc97gHxFkdmGdUqdnOuk+V5hTqOcQ4XcYCjeK4KorD4AsxyRwhwfed1M4WGq8J5iKIeyeRSTHt0vA5pa7wh7ttZYzy/NWt7DtuEmB7pozGtizg7hb2Xn1KvUqYp1OmCQ1sA8AQbk+Mn0CtGGpCiyJ1O/E47+Q4BUx6d0+TOp6pKeOxkal9bjB9hwATrK8wJ+IwOEEWsNx6qinFmqbSWzDAN3HmP181Z8rq6WhsN7wRInY333VylJYR5lNt5ZdaGPD6ejUHEbEQDHeP0TjLHbqmYWmx0HqwDzB0+hVpyLGAnQTfYeXDxWKnHQVQbiLuA8Ukq0u0SnFap95HJVnOm2e9gJe2SAJgxzWQMcsaLSjH06Bp6CJLjeSfVVvIsZUqkF4AgbDZEnH1C4sgRPmhafsajL6LDgaZ4OECw8AszGq9rgez1cG/GeFvXiucpZAA4KbMWNNNw7lhLCNCvDZi0tAcQXReNpVd6QZy1ksaC6o5pIa03AHM7CUqwmMp9aRqG6tdLLqdWmQAASQSRuY71G9atSHMrks1PTqJbIMtxB6phLNJ0iRyWJz9nbyWJ86dJJbn/X/AISngFfNG4yk9gBa5hDgDwI2/Rby7ou+sGxUDTebSLoDJKVbtudSdqgAGCNUc+avHRhrgBqaRzkJSw65HqMrLGWR5K7DM0ueHk3kCIUuW2AHe8f9xR2LxHaEDUI4IDDnTJNu04+Rul6rlNKfIyE+c+Bg5SUSq0OluHNU0y6N7na3enWFxrXsLmGRsCqE8snZJWqS634fmi6mFkamjvSmqwgzMKw4SrLQ4bEXCphewqmJ300yyl50xyPv+yu8Xg/xN8whsG7S7uK1jDB2h9S2socwpEscAQ0lpEm4HeecKWg5c5hTLmOAgkgi+1xxWzIiyHGgUxS0uaGA6CR2XBu4aZJtI3370cyrppAHd1j5kygsLguppuL3ktaDAJ7LGuI1RYE7bnwEJXQ6SA6mGkewHS7UNmgnaLcB4lYdY7NxDf0os1BsNHr63VR/4g0ADRq2ntM74s4R6n1CYYbpOHQBRjxf9AEDn+HbWcx9eqAGg6GtEATEmeJsPRJ1rWwfOjctNopdPJhiny55EboM4VlCvpEmOQ91axVwlIktc4nulVnHdLqLXuDKRJm5MKHNPpMc5jtlpwmJHVnvSrMntJBm4EW5lVit01qGzabQmGCrOc1r3gSZeR3cP33p2jpW9TdSMampOzCYScQ7DnW0DQfiaQBJ4ukXnxlRYzMPtAApEw4dons6Rxvw4iUoxlepVIbvqNgFZssyp7GggE2/DpMcBM/FHIc16SImEZLhgwajdxsLaWtbybN47+Kd0KgB3j07vPgoctx5L+rIJtpPNhN50HZpJ8uMI+pQE2G02/RbSFtmNqgmzp81PluNdTryD2Xnbk4GxHKbT4+otOmO/wAyusIdTwTwdJ8P9wFxxcq+aOBmAVA3NGmdTZnvUOA+9FiJvMnvkfIhEVMlfwLVK9yY5YaJ8HjKNP4KLR4Qh+sYXl5LhPARCFqZbWH4Z8Ch3U6g3Y5du8gXHRa8FmlNu5Pot43HUXMcAbxbdVE4gjcOHkVyccOaGUHLOsuyx2sucKYk2vf2VuwVC0AtHmqb9rHNS08UlRpRPQ6/UXXZcjgj/G31W1Uxi+8+pWJuEJ3sphxtTVA27gjzUcWGZmD7KGO1sj6h+7KlWlKKnqMRdEsY5znBxk6B7phTr/5oIJ7bvmAknRN0V3j+Vw+ac4f46o/m92hTV9tfsevuP9FXr5Q2o9oY2RrvzHEq7YLLKdM6mgzEG5g8reSQZKSyrXJOxt5i6teW0pEu9OJVuhKbI9RvBxUplzreqY5Y8AFoOy2+kSIbx+QWU8Lo2N1XjkTkPFUDdwHiQhsUyme017ARcyRBj2QVcwoGlE4b0s0otHxg9ze137hbOdsJgNO/d7f3VKqUiyq5t9LWl/iLBo/fJGU6va08Wt1Hxdb6u9Erey6PTw1kc9I8RTNN9PrAHaQ8C51CTy2uPkqzXwhe/saWdZGpz+w2G9oHbiYnvY3mmdRjKjdNRuoehHgRcKavQhojtNAjv80jU3b1WOAzHw5Kvh68d59f3/dOmVG1WdXU/pP8J5hJsblul2un39k95nsn6IYYwgw6WnvsimmP3TaE2f5k7DVDTqUTx0uB7Lxzaf3CpmNqtc8uY0tB4G69gxmAo4vDmm+xgQ4XLXDiOYXn2M6F4thOmmKreDmEX/pJBBQipI9SHngU5NSNSq1oaI3Pc0b/AL71capHARJgeA/2CrmR4WozEFjmuaWg6wQQRsQPMwrPg8M6rVDGX0iJ4DmSqIaSbYjDzgGymmwVDrOkRuLkXvwMCwv4K3jKWub2XP5hwe6fWUxyjJmUm2Ek/ETuf7dy6+x9Q7U0fcu3A/8Abdzjg0/Lw2zp+ql3h9eTep6atuV34Fr8vc513AVB/lvAvA2kT2he6mZVc8HYVWEteBtJbYjjB3TLGjsamm7e2O8DceYlLMXiGtqtqGzXs0uMd4LduRJH9SsIzKGKDmteNnAEeO8H98FJhjBcf3xP0+aAy+rAY0/C5ljwkPd9CEXiAQzxMIHB+Uu1Nc7k8f8Ajb2TAVHDZxHmUu6PfBVHe0+6PKi1liyrSeZJRjKo/G71n3UzM0qj8U+ICEP6rP38kvL8msIP/wAYfxaw+S0cyafipNPh/sgh+i5P0+qO5g2oM14Z29IjwA+i39jwZ/EW+o90FF/NaH0JR3A2oO/wehwr2/MFiAIWI7vwDb+Sr1ca1t3OAHejG4xrqRc0yCJBVJpZZUruDDVaXgHchrTG8GFacvyd/wBlk1aegNjUySBA4rAx8FFq4l9Os5zHOBJMaVbeiOLfUa8vMu1AT5KmvkVm9591cuioI6wHfslSay+Qrh/ME4vJqpeHNJFxqnYtm6t2XNL3aRyv3BefszrEPxbaJqaW9ZBbEEtbJjzAXpPR5kaneA+v6Kz0qa7JNfHsOG0ABAQ+Koo5rQuatKVYTFfr0kMWwm+Iw5HCyCqNXBQBWotfZ0jkR+7hDYnAVKRe5wkO09ocA3YEcD2nJi0AOE85Tmi+TKy4VDo1qj9FSpPRlCoQp8yywGq7q+x2Q6It3yOGyWtrFkB9psDNj4Kbek8F8WrQ0YKZ3aPJD5s7Bsaeus2JJc0xH5oXNOoDxXbjbTvO87ei0LrRT64Kjic/y2k2aNZ5MgRLnA+M381Jn2edRTpVWTGoa2mxIIsRO/FN8f0BwmJbrLOqebh1OGz4t2M+HFVDpp0NxY+9DuuY0QGt1BzWgQCGEmbcr9yVUpswnUJ+5qp0no4l7XPBY4AtGmDYkG7XRqiOB4mytfRSlRDPu3te7d+4Pm03AXkODy19U6WQeZNgPE/RWfL3jCQ4VNT2kGSTA/lHceSa43Tt6J1qOay+T2BgEKKtWgED1Vcy7pbRqi0h2mdEGSQLgGI8LyRwSfA5q7Hh+o6GyQ1gPAfxEbn5KePT3Tx0VX6iEs9k2T5iBQc19Tsl9WCTMN1aQ1vISbfLuWZvijV0U6LuyJDjxM6Z8NvFG1ctZRe4fgqbyZIibNPAXmF23LGgl34ucd1neY+cr05lpKTzaadOvI3w+G+5YD+EQo3VdTBe0784sSkNeo5xbSa95aXdqXE+UcAnb2wA0RAAA8lozgZZE6JHOfk0/qmxpmNW7dpG08jyKQZe6Hs8T8xCbYSodLuRj5Ska0JrcM06aeCU/qt/39lwT9V0P19lIUHQ/Rcnby+q2P0WuHkfdEBs7+f0XPDyK7O/n9FzFvIogNO/RYtuC0uOKE/ozU6xrtLarQwtOrs3PGDyT3I8OaFB1OoKbHHiHdnbkq5jMwdpDnVHwe+PkEor41mlzoLyPPz+amStLsopQ30WCvQwYdpNdpcTs2DcqfCUA2s2nTLu0OPIFee08W1tVryLBwPovTei1dlUnEgGGNIBPM3Psg9LC5Zr4nPCF+Y4ltTN2MaBFGm4E83aYM/6l6TkrPup4yf0+i8mylh/xasdzoc4+Zpj6r1vJ3B1Fpb/ADx3gPcJ+QPmr9DmdxHq8VgPY9TaxxQrboljpEFPFG3tlAYnDzwU9aiRdhju4f2QL8y3BF/RcEXYilCaYQANEm+6WYqpq4qXD0CWS294Mm9l3C7Ck30TVD945xs3QBfxKpPT7C68KQDs9pEX4hEdNejuJxJa6nUewNYQ5rSRqMkjYhC4Jhp4FoeHhzT2mumZnkbryvVcam5ez/3kt0ViHnwVXIM8qUntZUqnq5AdqvA7juPBWj/1PR1PALnaQdMU6g1AXtI3O0JLhcrfUxzKlOi8UmuD3OI0iQOE7nwV+flxeS4yJ4f3TlSxkdeq7a2rjBvKM8p1GtA1MMSGvGl0eCbtqA2KpmaZBUYW1KbiCD+5HJE0s8bSA657af5jAPcJS1XIKng30s6MueOswzRrnttBDdU/i8ee0+9DxOWGm8isCHCbR3xLeEW3C9HxPSzCtbP2hokS0CH6o4CNz3BIs/aXVG1KxlpkARAY0bWkaibfiB34BVabb/RHrRK5XYjweFdpD2tFjAveZAsOPE91kX0fZorvjYlrv/sY15Pq8o2piGsDAx4aIc2DDdT3EcmgExzPJKcDiT1jZs4MaXSZnTUew7flCojsnfRZM6pa6fe26Fy3FaqUndtj5I2vV7xcIbozhdVarTbbUwEGYNjwPDe6dTxyYSzwAuw7qdXrGtLmk3EbTui/trXEi8gXVrr9HnEAdbttYzfvm6gxuQNp0ajqji+KbtM7TFje4vyKW78G8eSv4TEjUz8w9wnuB+AHnJ+n0VWy1hc9gAPxC6t9DDuDQ0NcYEbFJ164wb055yb/ALroH6+ykbhah/A7j+EqZuW1T+A+3BTYY5tA7f0Wpt5H3R7Mpq/wcuLeHmo62X1GiS0xB7+PctYZnKBxv5/RaG3kfddRf+r6Lkbf0n3XHGP39PZaW37+nstLgHjeYVS0Bj5BF4PI7EJdRrEPsd1p4e4Ew5xHEg+l0d0Vy1+KrCm20Xe6LNbx8+QWNvH5HKuRllmW0XkF7ATP7sn+RHRTexjS1mokAC25V1y/LqdFobTYBHGO0e8u3KOBWX6amuaNf/Qk+JKVh6jWvfUFB3WNplxcGEl8XDRa5kCytfRguGDoCCHtpgw4EGeLTPiidSJpGyr0J+HG0l1a31uJeu2cARPAiCPELs4lRSuajJTcizKuYDmPUJBm2Y0/iLmggbBwLj3Ac0m6VZbUL9VOwAgtIsTztsqpWdVbIfTd4tE+yDv2O5PQzQqOphwhrjJgnVFuzcb8FXOjnSWu+r1YcwTMh1m25OTzo1jm4qgGPDmO06XC4MCx7xI90Xhei+Bpn/La4CCA7twRtGpJVv3K601xtGuAxD3tOsNEWlswbTaV06mDuosRimiA3ZQl7zsD5pTY3GOyYuaDzUFbE3tfw2XDcKdzf2UwpLKhvsFaqX0ifM6dao2GP0d4AJ8tUgeipWcdGZE1jUe4TD3Eao5EgCRylelupqF1BbUpdCXbfZ5HTwFCm0N7RImCTF3b8O4eiY5649YYJ0QHtk/9VrX2H9S9AxGRUqnxMB8BB9QiaWRURp+7BLWhoJEmGiBc8gmTlC7w+jzTCZNWxGkOJYwCJdJ/0sPgOQV4wHR7DiCKYJDQ2SSSQOd/NPP8P5LKtAU2l7gQBvF/kLrXJnghblVL/pt9JR+UZbSbUtTaJBEhoB57jwXNO4BBkG4RWEJD2yDujlnAue5a8EmnVc3ukxuP7qDJ8FVB1vOoQQO1PvsnmaD9+YVRy7phSbVdRfTqBwqOYCNJae0RO4I9EKtT2wzpuukWgSDdEhyW4HHiu0VWtc0Hg6Jta8EhGgozSpZRzTTwwhjkRTKDYiKaJkJWLgFZKAQDHZW13ab2TM9x/RIK1JzDpcIIafdW4obFYdrxDhPuPArLnIUyqvN/T2WJlVyZ0mHCOEzK0sbGHcjxfoZgxiaxFWToaC0NOmS021c9l6rgcvp0pLGNaXQXkC5I2k8VixaSQafQYF0FixaMGQp6SxYtIDJQVtYsROI6tIHdLcRllM7tC0sQaOQL/gNI8CO8OLT6tRuHytrfxPI5F0/M3WLFjahs20HU6AGwXekLFi7CObZotQtWRUp3sSQR5FYsQYMhulZCxYnizsBL8zxb6Ra+AaYMPHG+xHgsWLN/Swz2H03ggEbESFlRoIIOxEHzWLEZeUBrDFOWUyNVIm9M2/KZj2PlCK6yoCGtPHitrFhhQfmtYBkt1F1rGAN/4r+y8lbTP2xx/wDmJ/7rrFig9fTUr9lvol8z/R6H0Z/yG+LvdOAVixU+m+zH6X+E2v8Acr9skYUSwrFieKR3qWw5YsXBNyo3uWLFwCIuWLFi4B//2Q==">
+                </div>
+                <div class="fade-in delay-1">
+                    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">About IntelliCare</h2>
+                    <p style="margin-bottom: 1.5rem;">IntelliCare is a revolutionary health monitoring system that combines wearable technology with advanced sensors to provide real-time health data.</p>
+                    <p style="margin-bottom: 1.5rem;">Our smart gloves are equipped with multiple sensors to monitor oxygen levels, blood pressure, heart rate, and movement patterns, providing comprehensive health insights.</p>
+                    <p style="margin-bottom: 1.5rem;">Designed for both healthcare professionals and individuals, IntelliCare aims to make health monitoring accessible, accurate, and convenient.</p>
+                    <a href="#contact" class="btn" style="margin-top: 1rem;"><i class="fas fa-envelope"></i> Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 4rem 0; background-color: white;background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzg3A9ZvazXMTZ__ql5Id2pVx_Anll5efaKA&s');background-size: 100% 100vh;background-attachment: fixed;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;color: white;">Contact Us</h2>
+            <div style="max-width: 600px; margin: 0 auto; background-color: var(--light-color); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                <form id="contactForm" style="display: grid; gap: 1rem;">
+                    <div style="display: grid; gap: 0.5rem;">
+                        <label for="name" style="font-weight: 500;">Name</label>
+                        <input type="text" id="name" name="name" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                    </div>
+                    <div style="display: grid; gap: 0.5rem;">
+                        <label for="email" style="font-weight: 500;">Email</label>
+                        <input type="email" id="email" name="email" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                    </div>
+                    <div style="display: grid; gap: 0.5rem;">
+                        <label for="message" style="font-weight: 500;">Message</label>
+                        <textarea id="message" name="message" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="justify-self: start; padding: 0.8rem 2rem; margin-top: 1rem;"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    {% if error %}
+    <div id="errorToast" style="position: fixed; bottom: 20px; right: 20px; background-color: var(--danger-color); color: white; padding: 1rem; border-radius: 5px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); display: flex; align-items: center; z-index: 1000;">
+        <i class="fas fa-exclamation-circle" style="margin-right: 10px; font-size: 1.2rem;"></i>
+        <span>{{ error }}</span>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        if("{{msg}}"){
+            alert('{{msg}}');
+        }
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            // For this example, we'll just show a success message
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Hide error toast after 5 seconds
+        const errorToast = document.getElementById('errorToast');
+        if (errorToast) {
+            setTimeout(() => {
+                errorToast.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+{% endblock %}

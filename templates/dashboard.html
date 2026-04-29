@@ -1,0 +1,530 @@
+{% extends "base2.html" %}
+
+{% block title %}Dashboard | IntelliCare{% endblock %}
+
+{% block head %}
+    <style>
+        .dashboard {
+            padding: 2rem 0;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .device-status {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--success-color);
+            margin-right: 0.5rem;
+        }
+        
+        .sensor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .sensor-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .sensor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sensor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .sensor-icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .oxygen-icon { background-color: rgba(231, 76, 60, 0.1); color: var(--danger-color); }
+        .bp-icon { background-color: rgba(52, 152, 219, 0.1); color: var(--primary-color); }
+        .accel-icon { background-color: rgba(155, 89, 182, 0.1); color: #9b59b6; }
+        .flex-icon { background-color: rgba(46, 204, 113, 0.1); color: var(--success-color); }
+        .heart-icon { background-color: rgba(230, 126, 34, 0.1); color: #e67e22; }
+        
+        .sensor-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .sensor-unit {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .sensor-chart {
+            height: 100px;
+            margin-top: 1rem;
+            position: relative;
+        }
+        
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #eee;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .line-chart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .flex-sensors {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .flex-sensor {
+            background-color: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .flex-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0.3rem 0;
+        }
+        
+        .flex-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        .accel-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .accel-axis {
+            text-align: center;
+        }
+        
+        .accel-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .accel-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        .bp-values {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .bp-value {
+            text-align: center;
+        }
+        
+        .bp-sys, .bp-dia {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .bp-sys { color: var(--primary-color); }
+        .bp-dia { color: var(--secondary-color); }
+        
+        .bp-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        .disconnect-btn {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .data-history {
+            margin-top: 3rem;
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .history-table th, .history-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .history-table th {
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+        
+        .history-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .device-status {
+                margin-top: 1rem;
+            }
+            
+            .flex-sensors {
+                grid-template-columns: 1fr;
+            }
+        }
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .summary-grid div {
+            background: #f5f7fa;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard container">
+        <div class="dashboard-header">
+            <h1>Health Monitoring Dashboard</h1>
+        </div>
+        
+        <div class="sensor-grid">
+            <!-- Notification Card -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>Notifications</h3>
+                    <div class="sensor-icon oxygen-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                <div class="sensor-value" id="Notification">Notification</div>
+            </div>
+
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>Motion Detection</h3>
+                    <div class="sensor-icon oxygen-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                <div class="sensor-value" id="motion">Motion: Normal</div>
+            </div>
+
+            <!-- Flex Sensors Card -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>Flex Sensors</h3>
+                    <div class="sensor-icon flex-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                </div>
+                <div class="flex-sensors">
+                    <div class="flex-sensor">
+                        <div class="flex-label">Thumb</div>
+                        <div class="flex-value" id="flex-1-value">--</div>
+                    </div>
+                    <div class="flex-sensor">
+                        <div class="flex-label">Index</div>
+                        <div class="flex-value" id="flex-2-value">--</div>
+                    </div>
+                    <div class="flex-sensor">
+                        <div class="flex-label">Middle</div>
+                        <div class="flex-value" id="flex-3-value">--</div>
+                    </div>
+                    <div class="flex-sensor">
+                        <div class="flex-label">Ring</div>
+                        <div class="flex-value" id="flex-4-value">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sensor-grid">
+            <!-- Oxygen Sensor Card -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>Oxygen Saturation</h3>
+                    <div class="sensor-icon oxygen-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                </div>
+                <div class="sensor-value" id="oxygen-value">--</div>
+                <div class="sensor-unit">SpO2 %</div>
+                <div class="sensor-chart">
+                    <div class="chart-line"></div>
+                    <div class="chart-container">
+                        <canvas id="oxygen-chart" class="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blood Pressure Card -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>Blood Pressure</h3>
+                    <div class="sensor-icon bp-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                </div>
+                <div class="bp-values">
+                    <div class="bp-value">
+                        <div class="bp-sys" id="bp-sys-value">--</div>
+                        <div class="bp-label">Systolic</div>
+                    </div>
+                    <div class="bp-value">
+                        <div class="bp-dia" id="bp-dia-value">--</div>
+                        <div class="bp-label">Diastolic</div>
+                    </div>
+                </div>
+                <div class="sensor-chart">
+                    <div class="chart-line"></div>
+                    <div class="chart-container">
+                        <canvas id="bp-chart" class="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Temperature Card -->
+            <div class="sensor-card">
+                <div class="sensor-header">
+                    <h3>Temperature</h3>
+                    <div class="sensor-icon heart-icon">
+                        <i class="fas fa-temperature-half"></i>
+                    </div>
+                </div>
+                <div class="sensor-value" id="temperature-value">--</div>
+                <div class="sensor-unit">°C</div>
+                <div class="sensor-chart">
+                    <div class="chart-line"></div>
+                    <div class="chart-container">
+                        <canvas id="temperature-chart" class="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card summary-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2>Daily Health Summary</h2>
+                    <button onclick="loadSummary()" class="refresh-btn">Refresh</button>
+                </div>
+
+                <div class="summary-grid">
+                    <div>Min SpO2: <span id="spo2_min">--</span>%</div>
+                    <div>Max SpO2: <span id="spo2_max">--</span>%</div>
+                    <div>Avg SpO2: <span id="spo2_avg">--</span>%</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="disconnect-btn">
+            <a href="/" id="disconnect-btn" class="btn btn-accent"><i class="fas fa-plug"></i> Disconnect Device</a>
+        </div>
+        
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        if("{{msg}}"){
+            alert('{{msg}}');
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Chart data arrays
+            const oxygenData = [];
+            const bpSysData = [];
+            const bpDiaData = [];
+            const temperatureData = [];
+            const maxDataPoints = 20;
+            
+            // Initialize line charts
+            function createLineChart(canvasId, color) {
+                const ctx = document.getElementById(canvasId).getContext('2d');
+                return new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: Array(maxDataPoints).fill(''),
+                        datasets: [{
+                            data: [],
+                            borderColor: color,
+                            borderWidth: 2,
+                            fill: false,
+                            pointRadius: 0,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { display: false },
+                            y: { 
+                                display: false,
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+            
+            // Create chart instances with appropriate ranges
+            const oxygenChart = createLineChart('oxygen-chart', '#e74c3c');
+            oxygenChart.options.scales.y.suggestedMax = 100;
+            
+            const bpChart = createLineChart('bp-chart', '#3498db');
+            bpChart.options.scales.y.suggestedMax = 200;
+            
+            const temperatureChart = createLineChart('temperature-chart', '#e67e22');
+            temperatureChart.options.scales.y.suggestedMin = 30;
+            temperatureChart.options.scales.y.suggestedMax = 45;
+            
+            // Update chart with new data
+            function updateChart(chart, dataArray, newValue) {
+                dataArray.push(newValue);
+                if (dataArray.length > maxDataPoints) {
+                    dataArray.shift();
+                }
+                
+                chart.data.datasets[0].data = dataArray;
+                chart.update();
+            }
+            
+            // Function to update all sensor values
+            function updateSensorValues(data) {
+                // Oxygen
+                document.getElementById('oxygen-value').textContent = data.oxygen;
+                updateChart(oxygenChart, oxygenData, data.oxygen);
+                
+                // Blood Pressure
+                document.getElementById('bp-sys-value').textContent = data.blood_pressure.systolic ?? '--';
+                document.getElementById('bp-dia-value').textContent = data.blood_pressure.diastolic ?? '--';
+                updateChart(bpChart, bpSysData, data.blood_pressure.systolic);
+                
+                // Temperature
+                document.getElementById('temperature-value').textContent = data.temperature;
+                updateChart(temperatureChart, temperatureData, data.temperature);
+                
+                // Flex Sensors
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById(`flex-${i+1}-value`).textContent = data.flex[i];
+                }
+                
+                document.getElementById('Notification').textContent = data.notification;
+
+                document.getElementById('motion').textContent = data.motion;
+                motion.style.color = data.motion === "Alert" ? "red" : "green";
+            }
+            function loadSummary() {
+                fetch('/daily-summary')
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+
+                    document.getElementById("spo2_min").innerText = `${data.spo2_min}`;
+                    document.getElementById("spo2_max").innerText = `${data.spo2_max}`;
+                    document.getElementById("spo2_avg").innerText = `${data.spo2_avg}`;
+                })
+                .catch(err => console.error("Fetch error:", err));
+            }
+
+            // Load every 10 seconds
+            setInterval(loadSummary, 10000);
+
+            // Load once initially
+            loadSummary();
+            
+            // Poll for new sensor data
+            function pollSensorData() {
+                fetch('/get_sensor_data')
+                    .then(response => response.json())
+                    .then(data => {
+                        updateSensorValues(data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching sensor data:', error);
+                    });
+            }
+            
+            // Start polling
+            setInterval(pollSensorData, 1000);
+        });
+    </script>
+{% endblock %}
